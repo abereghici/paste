@@ -259,8 +259,8 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
                 </SidebarAnchor>
               </SidebarNestedItem>
               <SidebarNestedItem>
-                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status-label`}>
-                  Status label
+                <SidebarAnchor nested to={`${SidebarCategoryRoutes.PATTERNS}/status-pattern`}>
+                  Status pattern
                 </SidebarAnchor>
               </SidebarNestedItem>
             </SidebarNestedList>
