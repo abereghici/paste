@@ -9,6 +9,7 @@ import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
@@ -18,7 +19,9 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
-import { processStatus } from '../../../component-examples/StatusPatternExamples'
+import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
+
+import {processStatus} from '../../../component-examples/StatusPatternExamples';
 
 export const pageQuery = graphql`
   {
@@ -106,7 +109,10 @@ import { Box } from '@twilio-paste/core/box';
 
 ## General usage
 
-Statuses are used to communicate the dynamic state of an object to a user. Use them to help the user identify something that requires their attention and often, their action. When a status is used to indicate to the user that they need to take action, be sure to provide clear controls to take that action (e.g. a “Try again” button).
+Statuses are used to communicate the dynamic state of an object to a user.
+Use them to help the user identify something that requires their attention and often, their action.
+When a status is used to indicate to the user that they need to take action, be sure to provide
+clear controls to take that action (e.g. a “Try again” button).
 
 Statuses are:
 
@@ -118,59 +124,124 @@ Statuses are:
 
 ### Accessibility
 
-Non-text status indicators (such as icons or status dots) should be paired with text whenever possible and should always be given a `title` to give context and meaning to the icon or shape. Check out the <Anchor href="/icons/usage-guidelinse">icon usage guidelines</Anchor> for more detailed accessibility information.
+Non-text status indicators (such as icons or status dots) should be paired with text whenever
+possible and should always be given a `title` to give context and meaning to the icon or shape.
+Check out the <Anchor href="/icons/usage-guidelinse">icon usage guidelines</Anchor> for more detailed accessibility information.
 
 ## Variations
 
 ### Process status
 
-Process statuses indicate an object’s progress through a certain set of stages. There are generally 2 or more stages in a given process, which may be considered “good”, “bad”, or “neutral”. Process statuses are composed of a status Icon and Text.
+Process statuses indicate an object’s progress through a certain set of stages. There are generally 2 or more stages in a given process,
+which may be considered “good”, “bad”, or “neutral”. Process statuses are composed of a status Icon and Text.
 
-<b>Process icons should be paired with text whenever possible.</b> When using process icons, try to limit the number of icons used to 3 or 4 of the most important statuses. For statuses that are not as critical to a user’s workflow, consider <Anchor href="#">plain text statuses</Anchor>.
+<b>Process icons should be paired with text whenever possible.</b> When using process icons, try to limit the number of icons
+used to 3 or 4 of the most important statuses. For statuses that are not as critical to a user’s workflow, consider <Anchor href="#">
+  plain text statuses
+</Anchor>
+.
 
-to be replaced with img of draft, in progress, complete statuses
-![Screen of message details and list of properties](../../../assets/images/patterns/object-details-standard@3x.png)
+<LivePreview scope={{Box, Text, ProcessDisabledIcon}} noInline language="jsx">
 
-### Tabbed details
+</LivePreview>
 
-When you find that customers want to see multiple, top-level content sections, separate them with [Tabs](/components/tabs).
+![Process status icons with text for draft, in progress, and complete](../../../assets/images/patterns/status-process.png)
 
-![Screen of call details with tabs and list of properties](../../../assets/images/patterns/object-details-tabbed@3x.png)
+### Connectivity Status
 
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h4" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>TBD</DisclosureContent>
-  </Disclosure>
-</Box>
+Connectivity statuses are used to show if a user, object, or system is online or offline. Connectivity statuses are composed of a circle (using Box) and Text.
 
-### Placement of object actions
+**Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
+![Connectivity statuses for available, busy, unavailable, and offline](../../../assets/images/patterns/status-connectivity.png)
 
-Many object detail pages also include a set of actions that can be performed on that object, such as editing or deleting.
+### Plain text status
 
-<Callout variant="info">
-  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
-  <CalloutText>
-    We've not yet patternized this part of Object Details. If you need this for your current or upcoming work, please
-    consider partnering with us to <Anchor href="/patterns/contribute">contribute it</Anchor>.
-  </CalloutText>
-</Callout>
+Not all statuses need icons or shapes. In fact, giving every status an icon or a shape can make it difficult for a user to find and focus on the most critical information.
+If some statuses—such as successes or failures—are highly critical, consider using plain text for the other statuses that a user may not need to identify as quickly.
+
+## Composition
+
+### Icon and text placement
+
+The status icon or dot should most often be placed as a prefix, before the status text, though some page layouts may benefit from placing the icon as a suffix.
+A suffix icon is often beneficial when a status is right-aligned within a Card or List.
+
+For process statuses, the icon should generally be the same size as the line-height of the status text (e.g. use `$size-icon-20` for a status icon paired with text at `$line-height-20`).
+
+**It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
+
+In cases when screen space is constrained and only a status shape will fit, the status should be put into a tooltip that contains the status text.
+![Status using prefix, suffix, and tooltip](../../../assets/images/patterns/status-prefix-suffix-tooltip.png)
+
+### Positioning in a table
+
+Statuses are most often used in tables across our products.
+Placement of the status in the table should depend on the importance of the status to the given user flow and should be tested with users.
+
+Table LivePreview
+
+### Pairing process statuses with plain text statuses
+
+Using plain text statuses for non-critical information and process statuses for critical information
+is a great way to highlight information that is most important for a user to know.
+
+Table LivePreview
+
+### Providing additional information on a status
+
+It can often be beneficial to provide additional information on a status. The best way to do this is to provide description text directly below the status.
+This makes the information easily discoverable and is the simplest way for screen reader users to access it.
+
+In cases where the additional information won’t fit in the space below the status,
+it can be placed in a <Anchor href="/components/tooltip">Tooltip</Anchor> when a user hovers on the status, or in a <Anchor href="/components/popover">Popover</Anchor> if there is any interactive content.
+
+LivePreview w/ tooltip and popover
+
+### Adding a link to a status
+
+Linking out to additional information is a great way to add more context to a status and guide the user towards their next steps.
+
+<Anchor href="/components/anchor">Anchors</Anchor> can be placed directly on status text or within help text below the status.
+<Anchor href="components/button/#examples">Link-style Buttons</Anchor> can be used when clicking the text performs an in-page
+action, such as opening a modal.
+
+### Other common placements
+
+Statuses are not always placed in tables. Other common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
+
+## Dos and Don'ts
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use status icons to draw attention to the most important statuses. Try to limit a given set of statuses to 3–4
+    icons, and use plain text statuses for the rest. This helps users skim a dense set of data for the information that
+    is most critical."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Put a status icon or shape on every status if some statuses are more important than others. If all statuses are of
+    equal importance, they can all have icons."
+    preview={false}
+  />
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Choose a Process or Connectivity variant for a given status. The Plain Text variant can be mixed in with any other status variant."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Mix Process and Connectivity variants together for a given status. One object can have both a Process and a Connectivity status, but they need to be separated."
+    preview={false}
+  />
+</DoDont>
 
 ## Starter kits
 
-### CodeSandbox
-
-Coming soon
-
-### Figma
-
-Coming soon
-
-## Related discussions
-
-- [Label Value styling](https://github.com/twilio-labs/paste/discussions/528)
+- [Figma](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns?node-id=531%3A8)
 
 </content>
 
