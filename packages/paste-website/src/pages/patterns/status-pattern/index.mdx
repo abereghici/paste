@@ -20,8 +20,26 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
+import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
+import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
+import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 
-import {processStatus} from '../../../component-examples/StatusPatternExamples';
+import {
+  ProcessDisabled,
+  ProcessDraft,
+  ProcessError,
+  ProcessInProgress,
+  ProcessNeutral,
+  ProcessSuccess,
+  ProcessWarning,
+  ConnectivityAvailable,
+  ConnectivityBusy,
+  ConnectivityUnavailable,
+  ConnectivityOffline,
+} from '../../../component-examples/StatusPatternExamples.tsx';
 
 export const pageQuery = graphql`
   {
@@ -135,17 +153,34 @@ Check out the <Anchor href="/icons/usage-guidelinse">icon usage guidelines</Anch
 Process statuses indicate an object’s progress through a certain set of stages. There are generally 2 or more stages in a given process,
 which may be considered “good”, “bad”, or “neutral”. Process statuses are composed of a status Icon and Text.
 
+<LivePreview scope={{Box, Text, Stack, ProcessDisabledIcon, ProcessDraftIcon}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space80">
+      <Box display="flex">
+        <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="disabled" />
+        <Text marginLeft="spacing30">Disabled</Text>
+      </Box>
+      <Box display="flex">
+        <ProcessDraftIcon color="colorTextIcon" decorative={false} title="draft" />
+        <Text marginLeft="spacing30">Draft</Text>
+      </Box>
+    </Stack>`}
+</LivePreview>
+
 <b>Process icons should be paired with text whenever possible.</b> When using process icons, try to limit the number of icons
 used to 3 or 4 of the most important statuses. For statuses that are not as critical to a user’s workflow, consider <Anchor href="#">
   plain text statuses
 </Anchor>
 .
 
-<LivePreview scope={{Box, Text, ProcessDisabledIcon}} noInline language="jsx">
-
-</LivePreview>
-
-![Process status icons with text for draft, in progress, and complete](../../../assets/images/patterns/status-process.png)
+| Shape                 | Icon Name                | Token                      | Usage                                                                                                              |
+| --------------------- | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| <ProcessError />      | `ProcessErrorIcon`       | `$color-text-icon-error`   | Indicates an error or that something went wrong.                                                                   |
+| <ProcessWarning />    | `ProcessWarningIcon`     | `$color-text-icon-warning` | Indicates a condition requiring corrective action.                                                                 |
+| <ProcessSuccess />    | `ProcessSuccessIcon`     | `$color-text-icon-success` | Indicates that something is stable, active, or successfully completed.                                             |
+| <ProcessNeutral />    | `ProcessNeutralIcon`     | `$color-text-icon-neutral` | Indicates a neutral / informative state. Can be used to fill any gaps that the more specific statuses don’t cover. |
+| <ProcessInProgress /> | `ProcessInProgresslIcon` | `$color-text-icon-neutral` | Indicates that something is in progress, in review, or scheduled.                                                  |
+| <ProcessDraft />      | `ProcessDraftIcon`       | `$color-text-icon`         | Indicates that something is a draft, unused, or not started.                                                       |
+| <ProcessDisabled />   | `ProcessDisabledIcon`    | `$color-text-icon`         | Indicates that something is inactive, disabled, or paused.                                                         |
 
 ### Connectivity Status
 
@@ -153,6 +188,13 @@ Connectivity statuses are used to show if a user, object, or system is online or
 
 **Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
 ![Connectivity statuses for available, busy, unavailable, and offline](../../../assets/images/patterns/status-connectivity.png)
+
+| Shape and Token             | Usage                           |
+| --------------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| <ConnectivityAvailable />   | `$color-background-available`   | Indicates that a person or entity is available or online.        |
+| <ConnectivityBusy />        | `$color-background-busy`        | Indicates that a person or entity is busy or away.               |
+| <ConnectivityUnavailable /> | `$color-background-unavailable` | Indicates that a person or entity is unavailable or at capacity. |
+| <ConnectivityOffline />     | `$color-border`                 | Indicates that a person or entity is offline.                    |
 
 ### Plain text status
 
