@@ -344,3 +344,173 @@ props:
     comment: Default icon color for inverse backgrounds.
     text_contrast_pairing:
       - color-background-body-inverse
+  color-text-icon-error:
+    value: "{!palette-red-60}"
+    comment: Icon color for indicating an error.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
+  color-text-icon-success:
+    value: "{!palette-green-70}"
+    comment: Icon color for indicating success.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
+  color-text-icon-warning:
+    value: "{!palette-orange-65}"
+    comment: Icon color for indicating a warning.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
+  color-text-icon-neutral:
+    value: "{!palette-blue-80}"
+    comment: Icon color for being neutral.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
+  color-text-icon-brand-highlight:
+    value: "{!amaranth}"
+    comment: Icon color for highlights of brand color.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+    uicontrol_contrast_pairing:
+      - color-background
+      - color-background-strong
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-new
+      - color-background-row-striped
+      - color-background-primary-weak
+      - color-background-primary-weaker
+      - color-background-primary-weakest
+      - color-background-destructive-weak
+      - color-background-destructive-weaker
+      - color-background-destructive-weakest
+  color-text-icon-brand-inverse:
+    value: "{!palette-gray-0}"
+    comment: Icon color for brand color on inverse backgrounds.
+    text_contrast_pairing:
+      - color-background-body-inverse
