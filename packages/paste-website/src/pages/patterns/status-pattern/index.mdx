@@ -8,6 +8,7 @@ import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
@@ -18,7 +19,9 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
+import {Tooltip} from '@twilio-paste/tooltip';
 import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
 import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
@@ -39,6 +42,11 @@ import {
   ConnectivityBusy,
   ConnectivityUnavailable,
   ConnectivityOffline,
+  processStatusExamples,
+  connectivityStatusExamples,
+  prefixSuffixTooltipExamples,
+  tableExample,
+  tableWithPlainTextExample,
 } from '../../../component-examples/StatusPatternExamples.tsx';
 
 export const pageQuery = graphql`
@@ -153,17 +161,22 @@ Check out the <Anchor href="/icons/usage-guidelinse">icon usage guidelines</Anch
 Process statuses indicate an object’s progress through a certain set of stages. There are generally 2 or more stages in a given process,
 which may be considered “good”, “bad”, or “neutral”. Process statuses are composed of a status Icon and Text.
 
-<LivePreview scope={{Box, Text, Stack, ProcessDisabledIcon, ProcessDraftIcon}} language="jsx">
-  {`<Stack orientation="horizontal" spacing="space80">
-      <Box display="flex">
-        <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="disabled" />
-        <Text marginLeft="spacing30">Disabled</Text>
-      </Box>
-      <Box display="flex">
-        <ProcessDraftIcon color="colorTextIcon" decorative={false} title="draft" />
-        <Text marginLeft="spacing30">Draft</Text>
-      </Box>
-    </Stack>`}
+<LivePreview
+  scope={{
+    Box,
+    Text,
+    Stack,
+    ProcessDisabledIcon,
+    ProcessDraftIcon,
+    ProcessErrorIcon,
+    ProcessInProgressIcon,
+    ProcessNeutralIcon,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
+  }}
+  language="jsx"
+>
+  {processStatusExamples}
 </LivePreview>
 
 <b>Process icons should be paired with text whenever possible.</b> When using process icons, try to limit the number of icons
@@ -172,22 +185,31 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
 </Anchor>
 .
 
-| Shape                 | Icon Name                | Token                      | Usage                                                                                                              |
-| --------------------- | ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| <ProcessError />      | `ProcessErrorIcon`       | `$color-text-icon-error`   | Indicates an error or that something went wrong.                                                                   |
-| <ProcessWarning />    | `ProcessWarningIcon`     | `$color-text-icon-warning` | Indicates a condition requiring corrective action.                                                                 |
-| <ProcessSuccess />    | `ProcessSuccessIcon`     | `$color-text-icon-success` | Indicates that something is stable, active, or successfully completed.                                             |
-| <ProcessNeutral />    | `ProcessNeutralIcon`     | `$color-text-icon-neutral` | Indicates a neutral / informative state. Can be used to fill any gaps that the more specific statuses don’t cover. |
-| <ProcessInProgress /> | `ProcessInProgresslIcon` | `$color-text-icon-neutral` | Indicates that something is in progress, in review, or scheduled.                                                  |
-| <ProcessDraft />      | `ProcessDraftIcon`       | `$color-text-icon`         | Indicates that something is a draft, unused, or not started.                                                       |
-| <ProcessDisabled />   | `ProcessDisabledIcon`    | `$color-text-icon`         | Indicates that something is inactive, disabled, or paused.                                                         |
+| Shape                 | Icon Name               | Token                      | Usage                                                                                                              |
+| --------------------- | ----------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| <ProcessError />      | `ProcessErrorIcon`      | `$color-text-icon-error`   | Indicates an error or that something went wrong.                                                                   |
+| <ProcessWarning />    | `ProcessWarningIcon`    | `$color-text-icon-warning` | Indicates a condition requiring corrective action.                                                                 |
+| <ProcessSuccess />    | `ProcessSuccessIcon`    | `$color-text-icon-success` | Indicates that something is stable, active, or successfully completed.                                             |
+| <ProcessNeutral />    | `ProcessNeutralIcon`    | `$color-text-icon-neutral` | Indicates a neutral / informative state. Can be used to fill any gaps that the more specific statuses don’t cover. |
+| <ProcessInProgress /> | `ProcessInProgressIcon` | `$color-text-icon-neutral` | Indicates that something is in progress, in review, or scheduled.                                                  |
+| <ProcessDraft />      | `ProcessDraftIcon`      | `$color-text-icon`         | Indicates that something is a draft, unused, or not started.                                                       |
+| <ProcessDisabled />   | `ProcessDisabledIcon`   | `$color-text-icon`         | Indicates that something is inactive, disabled, or paused.                                                         |
 
 ### Connectivity Status
 
 Connectivity statuses are used to show if a user, object, or system is online or offline. Connectivity statuses are composed of a circle (using Box) and Text.
 
+<LivePreview
+  scope={{
+    Box,
+    Text,
+  }}
+  language="jsx"
+>
+  {connectivityStatusExamples}
+</LivePreview>
+
 **Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
-![Connectivity statuses for available, busy, unavailable, and offline](../../../assets/images/patterns/status-connectivity.png)
 
 | Shape and Token             | Usage                           |
 | --------------------------- | ------------------------------- | ---------------------------------------------------------------- |
@@ -213,21 +235,68 @@ For process statuses, the icon should generally be the same size as the line-hei
 **It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
 
 In cases when screen space is constrained and only a status shape will fit, the status should be put into a tooltip that contains the status text.
-![Status using prefix, suffix, and tooltip](../../../assets/images/patterns/status-prefix-suffix-tooltip.png)
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Text,
+    Tooltip,
+    ProcessErrorIcon,
+  }}
+  language="jsx"
+>
+  {prefixSuffixTooltipExamples}
+</LivePreview>
 
 ### Positioning in a table
 
 Statuses are most often used in tables across our products.
 Placement of the status in the table should depend on the importance of the status to the given user flow and should be tested with users.
 
-Table LivePreview
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Heading,
+    Text,
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Td,
+    Th,
+    ProcessSuccessIcon,
+  }}
+  language="jsx"
+>
+  {tableExample}
+</LivePreview>
 
 ### Pairing process statuses with plain text statuses
 
 Using plain text statuses for non-critical information and process statuses for critical information
 is a great way to highlight information that is most important for a user to know.
 
-Table LivePreview
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Heading,
+    Text,
+    Table,
+    THead,
+    TBody,
+    Tr,
+    Td,
+    Th,
+    ProcessSuccessIcon,
+    ProcessInProgressIcon,
+  }}
+  language="jsx"
+>
+  {tableWithPlainTextExample}
+</LivePreview>
 
 ### Providing additional information on a status
 
