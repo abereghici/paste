@@ -1,5 +1,5 @@
 ---
-'@twilio-paste/icons': patch
+'@twilio-paste/icons': minor
 ---
 
 Added the following icons:
