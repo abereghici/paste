@@ -148,9 +148,9 @@ Statuses are:
 
 - Always related to an object. For example, a SIM can have a status, but a step in a wizard flow cannot.
 - Not used for static attributes. For example, “SMS-capable” is not a status on a phone number.
-- Different from <Anchor href="/patterns/notifications">notification/feedback messaging</Anchor>, which is in direct response to a user action.
-- Different from <Anchor href="/components/alert">alert messaging</Anchor>, which is from the system.
-- Used to draw a user’s attention to important information. Use <Anchor href="#plain-text-status">plain text statuses</Anchor> when the status is not critical information for a user to know.
+- Different from [notification/feedback messaging](/patterns/notifications-and-feedback), which is in direct response to a user action.
+- Different from [alert messaging](/components/alert), which is from the system.
+- Used to draw a user’s attention to important information. Use [plain text statuses](#plain-text-status) when the status is not critical information for a user to know.
 
 ### Accessibility
 
@@ -183,13 +183,9 @@ which may be considered “good”, “bad”, or “neutral”. Process statuse
   {processStatusExamples}
 </LivePreview>
 
-<b>Process icons should be paired with text whenever possible.</b> When using process icons, try to limit the number of icons
+**Process icons should be paired with text whenever possible.** When using process icons, try to limit the number of icons
 used to 3 or 4 of the most important statuses. For statuses that are not as critical to a user’s workflow, consider <Anchor href="#">
-  plain text statuses
-</Anchor>
-.
-<br />
-<br />
+plain text statuses</Anchor>.
 
 #### Icon and token pairings
 
@@ -314,11 +310,8 @@ This makes the information easily discoverable and is the simplest way for scree
 
 Linking out to additional information is a great way to add more context to a status and guide the user towards their next steps.
 
-<Anchor href="/components/anchor">Anchors</Anchor> can be placed directly on status text or within help text below the status. <Anchor href="components/button/#examples">
-  Link-style Buttons
-</Anchor> can be used when clicking the text performs an in-page action, such as opening a modal.
-<br />
-<br />
+[Anchors](/components/anchor) can be placed directly on status text or within help text below the status.
+[Link-style buttons](/components/button/#examples) can be used when clicking the text performs an in-page action, such as opening a modal.
 
 <LivePreview
   scope={{
