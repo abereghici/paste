@@ -7,6 +7,7 @@ slug: /patterns/status-pattern/
 import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
@@ -17,6 +18,7 @@ import {Flex} from '@twilio-paste/flex';
 import {FormInput, FormLabel, FormHelpText} from '@twilio-paste/form';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
@@ -47,6 +49,8 @@ import {
   prefixSuffixTooltipExamples,
   tableExample,
   tableWithPlainTextExample,
+  linkInStatusExamples,
+  otherCommonPlacements,
 } from '../../../component-examples/StatusPatternExamples.tsx';
 
 export const pageQuery = graphql`
@@ -146,7 +150,7 @@ Statuses are:
 - Not used for static attributes. For example, “SMS-capable” is not a status on a phone number.
 - Different from <Anchor href="/patterns/notifications">notification/feedback messaging</Anchor>, which is in direct response to a user action.
 - Different from <Anchor href="/components/alert">alert messaging</Anchor>, which is from the system.
-- Used to draw a user’s attention to important information. Use <Anchor href="#">plain text statuses</Anchor> when the status is not critical information for a user to know.
+- Used to draw a user’s attention to important information. Use <Anchor href="#plain-text-status">plain text statuses</Anchor> when the status is not critical information for a user to know.
 
 ### Accessibility
 
@@ -184,6 +188,10 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
   plain text statuses
 </Anchor>
 .
+<br />
+<br />
+
+#### Icon and token pairings
 
 | Shape                 | Icon Name               | Token                      | Usage                                                                                                              |
 | --------------------- | ----------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -211,7 +219,9 @@ Connectivity statuses are used to show if a user, object, or system is online or
 
 **Connectivity statuses should almost always be paired with accompanying text**, though Available and Offline can be used without text in cases where space is constrained, since there is a shape difference.
 
-| Shape and Token             | Usage                           |
+#### Shape and token pairings
+
+| Shape                       | Token                           | Usage                                                            |
 | --------------------------- | ------------------------------- | ---------------------------------------------------------------- |
 | <ConnectivityAvailable />   | `$color-background-available`   | Indicates that a person or entity is available or online.        |
 | <ConnectivityBusy />        | `$color-background-busy`        | Indicates that a person or entity is busy or away.               |
@@ -232,22 +242,20 @@ A suffix icon is often beneficial when a status is right-aligned within a Card o
 
 For process statuses, the icon should generally be the same size as the line-height of the status text (e.g. use `$size-icon-20` for a status icon paired with text at `$line-height-20`).
 
-**It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
-
-In cases when screen space is constrained and only a status shape will fit, the status should be put into a tooltip that contains the status text.
-
 <LivePreview
   scope={{
     Box,
     Button,
     Text,
-    Tooltip,
+    Stack,
     ProcessErrorIcon,
   }}
   language="jsx"
 >
   {prefixSuffixTooltipExamples}
 </LivePreview>
+
+**It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
 
 ### Positioning in a table
 
@@ -290,7 +298,6 @@ is a great way to highlight information that is most important for a user to kno
     Tr,
     Td,
     Th,
-    ProcessSuccessIcon,
     ProcessInProgressIcon,
   }}
   language="jsx"
@@ -303,11 +310,6 @@ is a great way to highlight information that is most important for a user to kno
 It can often be beneficial to provide additional information on a status. The best way to do this is to provide description text directly below the status.
 This makes the information easily discoverable and is the simplest way for screen reader users to access it.
 
-In cases where the additional information won’t fit in the space below the status,
-it can be placed in a <Anchor href="/components/tooltip">Tooltip</Anchor> when a user hovers on the status, or in a <Anchor href="/components/popover">Popover</Anchor> if there is any interactive content.
-
-LivePreview w/ tooltip and popover
-
 ### Adding a link to a status
 
 Linking out to additional information is a great way to add more context to a status and guide the user towards their next steps.
@@ -315,10 +317,46 @@ Linking out to additional information is a great way to add more context to a st
 <Anchor href="/components/anchor">Anchors</Anchor> can be placed directly on status text or within help text below the status.
 <Anchor href="components/button/#examples">Link-style Buttons</Anchor> can be used when clicking the text performs an in-page
 action, such as opening a modal.
+<br />
+<br />
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Heading,
+    Text,
+    Anchor,
+    ProcessErrorIcon,
+  }}
+  language="jsx"
+>
+  {linkInStatusExamples}
+</LivePreview>
+
+<br />
+<br />
 
 ### Other common placements
 
 Statuses are not always placed in tables. Other common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Heading,
+    Text,
+    Avatar,
+    Anchor,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+  }}
+  language="jsx"
+>
+  {otherCommonPlacements}
+</LivePreview>
 
 ## Dos and Don'ts
 

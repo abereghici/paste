@@ -93,31 +93,52 @@ export const ConnectivityOffline: React.FC = () => {
 export const processStatusExamples = `
 <Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">
   <Box display="flex">
-    <ProcessErrorIcon color="colorTextIconError" decorative={false} title="error" />
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="error" />
     <Text marginLeft="space20">Error</Text>
   </Box>
   <Box display="flex">
-    <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="warning" />
+    <ProcessWarningIcon
+      color="colorTextIconWarning"
+      decorative={false}
+      title="warning" />
     <Text marginLeft="space20">Warning</Text>
   </Box>
   <Box display="flex">
-    <ProcessSuccessIcon color="colorTextIconSucess" decorative={false} title="success" />
+    <ProcessSuccessIcon
+      color="colorTextIconSuccess"
+      decorative={false}
+      title="success" />
     <Text marginLeft="space20">Success</Text>
   </Box>
   <Box display="flex">
-    <ProcessNeutralIcon color="colorTextIconNeutral" decorative={false} title="neutral" />
+    <ProcessNeutralIcon
+      color="colorTextIconNeutral"
+      decorative={false}
+      title="neutral" />
     <Text marginLeft="space20">Neutral</Text>
   </Box>
   <Box display="flex">
-    <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
+    <ProcessInProgressIcon
+      color="colorTextIconNeutral"
+      decorative={false}
+      title="in progress" />
     <Text marginLeft="space20">In Progress</Text>
   </Box>
   <Box display="flex">
-    <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="disabled" />
+    <ProcessDisabledIcon
+      color="colorTextIcon"
+      decorative={false}
+      title="disabled" />
     <Text marginLeft="space20">Disabled</Text>
   </Box>
   <Box display="flex">
-    <ProcessDraftIcon color="colorTextIcon" decorative={false} title="draft" />
+    <ProcessDraftIcon
+      color="colorTextIcon"
+      decorative={false}
+      title="draft" />
     <Text marginLeft="space20">Draft</Text>
   </Box>
 </Box>
@@ -126,15 +147,24 @@ export const processStatusExamples = `
 export const connectivityStatusExamples = `
 <Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">
   <Box display="flex" alignItems="center">
-    <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundAvailable" />
+    <Box
+      borderRadius="borderRadiusCircle"
+      size="sizeSquare30"
+      backgroundColor="colorBackgroundAvailable" />
     <Text marginLeft="space30">Available</Text>
   </Box>
   <Box display="flex" alignItems="center">
-    <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundBusy" />
+    <Box
+      borderRadius="borderRadiusCircle"
+      size="sizeSquare30"
+      backgroundColor="colorBackgroundBusy" />
     <Text marginLeft="space30">Busy</Text>
   </Box>
   <Box display="flex" alignItems="center">
-    <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundUnavailable" />
+    <Box
+      borderRadius="borderRadiusCircle"
+      size="sizeSquare30"
+      backgroundColor="colorBackgroundUnavailable" />
     <Text marginLeft="space30">Unavailable</Text>
   </Box>
   <Box display="flex" alignItems="center">
@@ -151,25 +181,31 @@ export const connectivityStatusExamples = `
 `.trim();
 
 export const prefixSuffixTooltipExamples = `
-<Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">
+<Stack orientation="vertical" spacing="space60">
   <Box display="flex">
-    <ProcessErrorIcon color="colorTextIconError" decorative={false} title="failed to process" />
-    <Text marginLeft="space20">Failed to process</Text>
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="failed to process"
+      size="sizeIcon40"
+    />
+    <Text
+      lineHeight="lineHeight40"
+      fontSize="fontSize40"
+      marginLeft="space20"
+    >
+      Failed to process
+    </Text>
   </Box>
   <Box display="flex">
     <Text marginRight="space20">Failed to process</Text>
-    <ProcessErrorIcon color="colorTextIconError" decorative={false} title="failed to process" />
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="failed to process"
+    />
   </Box>
-  <Tooltip text="Failed to process" placement="right">
-    <Button variant="reset">
-      <ProcessErrorIcon
-        color="colorTextIconError"
-        decorative={false}
-        title="Failed to process"
-      />
-    </Button>
-  </Tooltip>
-</Box>
+</Stack>
 `.trim();
 
 export const tableExample = `
@@ -188,7 +224,7 @@ export const tableExample = `
       <Tr>
         <Td>
           <Box display="flex">
-            <ProcessSuccessIcon color="colorTextIconSucess" decorative={false} title="success" />
+            <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="success" />
             <Text as="p" marginLeft="space30">
               Successfully exported
             </Text>
@@ -204,7 +240,7 @@ export const tableExample = `
       <Tr>
         <Td>
           <Box display="flex">
-            <ProcessSuccessIcon color="colorTextIconSucess" decorative={false} title="success" />
+            <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="success" />
             <Text as="p" marginLeft="space30">
               Successfully exported
             </Text>
@@ -260,4 +296,42 @@ export const tableWithPlainTextExample = `
     </TBody>
   </Table>
 </>
+`.trim();
+
+export const linkInStatusExamples = `
+<Box display="flex" columnGap="space80" rowGap="space60" flexWrap="wrap">
+  <Box display="flex">
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="error"
+    />
+    <Anchor
+      marginLeft="space20"
+      href="#"
+      showExternal
+    >
+      Pre-registration needed
+    </Anchor>
+  </Box>
+</Box>
+`.trim();
+
+export const otherCommonPlacements = `
+<MediaObject>
+  <MediaFigure spacing="space30">
+    <Avatar size="sizeIcon80" name="avatar example" src="/images/avatars/avatar4.png" />
+  </MediaFigure>
+  <MediaBody>
+    <Text fontWeight="fontWeightSemibold">Leticia Baker</Text>
+    <Box display="flex" alignItems="center">
+      <Box
+        borderRadius="borderRadiusCircle"
+        size="sizeSquare30"
+        backgroundColor="colorBackgroundBusy" />
+      <Text marginLeft="space30">Busy</Text>
+    </Box>
+  </MediaBody>
+</MediaObject>
+
 `.trim();
