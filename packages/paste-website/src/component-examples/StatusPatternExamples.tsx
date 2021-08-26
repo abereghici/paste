@@ -278,8 +278,8 @@ export const tableWithPlainTextExample = `
         <Td>Series</Td>
         <Td>
         <Box display="flex">
-          <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
-          <Text marginLeft="space20">In Progress</Text>
+          <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="progress halted" />
+          <Text marginLeft="space20">Progress Halted</Text>
         </Box>
         </Td>
       </Tr>
@@ -314,24 +314,164 @@ export const linkInStatusExamples = `
       Pre-registration needed
     </Anchor>
   </Box>
+  <Box display="inline-flex" columnGap="space20">
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="error"
+    />
+    <Box>
+      <Text as="div">Pre-registration needed</Text>
+      <Box>
+        <Anchor
+        marginLeft="space20"
+        href="#"
+        showExternal
+        >
+          Fill out the registration form here
+        </Anchor>
+      </Box>
+    </Box>
+  </Box>
+  <Box display="inline-flex" columnGap="space20">
+    <ProcessErrorIcon
+      color="colorTextIconError"
+      decorative={false}
+      title="error"
+    />
+    <Box>
+      <Text as="div">Pre-registration needed</Text>
+      <Box>
+        <Button
+        marginLeft="space20"
+        variant="link"
+        >
+          View details
+        </Button>
+      </Box>
+    </Box>
+  </Box>
 </Box>
 `.trim();
 
 export const otherCommonPlacements = `
-<MediaObject>
-  <MediaFigure spacing="space30">
-    <Avatar size="sizeIcon80" name="avatar example" src="/images/avatars/avatar4.png" />
-  </MediaFigure>
-  <MediaBody>
-    <Text fontWeight="fontWeightSemibold">Leticia Baker</Text>
-    <Box display="flex" alignItems="center">
+<Stack orientation="vertical" spacing="space60">
+  <MediaObject>
+    <MediaFigure spacing="space30">
+      <Avatar size="sizeIcon80" name="avatar example" src="/images/avatars/avatar4.png" />
+    </MediaFigure>
+    <MediaBody>
+      <Text fontWeight="fontWeightSemibold">Leticia Baker</Text>
+      <Box display="flex" alignItems="center">
+        <Box
+          borderRadius="borderRadiusCircle"
+          size="sizeSquare30"
+          backgroundColor="colorBackgroundBusy" />
+        <Text marginLeft="space30">Busy</Text>
+      </Box>
+    </MediaBody>
+  </MediaObject>
+  <Box width="60%">
+    <Card>
       <Box
-        borderRadius="borderRadiusCircle"
-        size="sizeSquare30"
-        backgroundColor="colorBackgroundBusy" />
-      <Text marginLeft="space30">Busy</Text>
+        as="span"
+        display="flex"
+        width="100%"
+        alignItems="center"
+        justifyContent="space-between"
+        marginBottom="space70"
+      >
+        <Heading as="h3" variant="heading40" marginBottom="space0">
+          Business Profile
+        </Heading>
+        <Box
+          as="span"
+          display="flex"
+          alignItems="center"
+          fontSize="fontSize20"
+        >
+          <Text marginRight="space20">
+            Approved
+          </Text>
+          <ProcessSuccessIcon
+            color="colorTextIconSuccess"
+            decorative={false}
+            title="success"
+          />
+        </Box>
+      </Box>
+      <Paragraph>Information about your business</Paragraph>
+    </Card>
+  </Box>
+  <Box width="275px">
+    <Box
+      as="span"
+      display="flex"
+      width="100%"
+      alignItems="center"
+      justifyContent="space-between"
+      marginBottom="space30"
+    >
+      <Text fontWeight="fontWeightSemibold">Account Security</Text>
+      <Box
+        as="span"
+        display="flex"
+        alignItems="center"
+        fontSize="fontSize20"
+      >
+        <Text marginRight="space20">Connected</Text>
+        <ProcessSuccessIcon
+          color="colorTextIconSuccess"
+          decorative={false}
+          title="connected"
+        />
+      </Box>
     </Box>
-  </MediaBody>
-</MediaObject>
-
+    <Box
+      as="span"
+      display="flex"
+      width="100%"
+      alignItems="center"
+      justifyContent="space-between"
+      marginBottom="space30"
+    >
+      <Text fontWeight="fontWeightSemibold">Autopilot</Text>
+      <Box
+        as="span"
+        display="flex"
+        alignItems="center"
+        fontSize="fontSize20"
+      >
+        <Text marginRight="space20">Connected</Text>
+        <ProcessSuccessIcon
+          color="colorTextIconSuccess"
+          decorative={false}
+          title="connected"
+        />
+      </Box>
+    </Box>
+    <Box
+      as="span"
+      display="flex"
+      width="100%"
+      alignItems="center"
+      justifyContent="space-between"
+    >
+      <Text fontWeight="fontWeightSemibold">Carrier Network</Text>
+      <Box
+        as="span"
+        display="flex"
+        alignItems="center"
+        fontSize="fontSize20"
+      >
+        <Text marginRight="space20">Intermittent</Text>
+        <ProcessWarningIcon
+          color="colorTextIconWarning"
+          decorative={false}
+          title="warning"
+        />
+      </Box>
+    </Box>
+  </Box>
+</Stack>
 `.trim();

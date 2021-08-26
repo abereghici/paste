@@ -298,7 +298,7 @@ is a great way to highlight information that is most important for a user to kno
     Tr,
     Td,
     Th,
-    ProcessInProgressIcon,
+    ProcessWarningIcon,
   }}
   language="jsx"
 >
@@ -314,9 +314,9 @@ This makes the information easily discoverable and is the simplest way for scree
 
 Linking out to additional information is a great way to add more context to a status and guide the user towards their next steps.
 
-<Anchor href="/components/anchor">Anchors</Anchor> can be placed directly on status text or within help text below the status.
-<Anchor href="components/button/#examples">Link-style Buttons</Anchor> can be used when clicking the text performs an in-page
-action, such as opening a modal.
+<Anchor href="/components/anchor">Anchors</Anchor> can be placed directly on status text or within help text below the status. <Anchor href="components/button/#examples">
+  Link-style Buttons
+</Anchor> can be used when clicking the text performs an in-page action, such as opening a modal.
 <br />
 <br />
 
@@ -345,6 +345,7 @@ Statuses are not always placed in tables. Other common placements are near avata
   scope={{
     Box,
     Button,
+    Card,
     Heading,
     Text,
     Avatar,
@@ -352,6 +353,10 @@ Statuses are not always placed in tables. Other common placements are near avata
     MediaObject,
     MediaFigure,
     MediaBody,
+    Paragraph,
+    Stack,
+    ProcessSuccessIcon,
+    ProcessWarningIcon,
   }}
   language="jsx"
 >
