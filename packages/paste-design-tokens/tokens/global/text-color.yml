@@ -478,7 +478,7 @@ props:
       - color-background-destructive-weakest
   color-text-icon-brand-highlight:
     value: "{!amaranth}"
-    comment: Icon color for highlights of brand color.
+    comment: Twilio brand red icon color used for the Twilio logo.
     text_contrast_pairing:
       - color-background
       - color-background-body
@@ -511,6 +511,6 @@ props:
       - color-background-destructive-weakest
   color-text-icon-brand-inverse:
     value: "{!palette-gray-0}"
-    comment: Icon color for brand color on inverse backgrounds.
+    comment: Twilio brand icon color used for the Twilio logo on inverse backgrounds.
     text_contrast_pairing:
       - color-background-body-inverse
